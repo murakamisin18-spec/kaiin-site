@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>店舗せどり⇨Amazonで月利463万までの道</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap">
 <style>
@@ -33,8 +33,9 @@
    外側に白い余白が出る。overscroll-behavior で伝播を止め、html にも背景色を敷く */
 html{-webkit-text-size-adjust:100%;background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
-/* 通常の文書スクロール（固定高さ・100vh・overflow:hidden は使わない） */
-#scroller{display:flex;flex-direction:column;min-height:100vh;background:var(--bg)}
+/* 通常の文書フロー。100vh/100%/overflow:hidden/position:fixed で全画面を確保する作りは
+   スマホChromeのツールバー伸縮と干渉して下部に空白が出るため一切使わない */
+#scroller{display:block;background:var(--bg)}
 a{color:var(--primary);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;height:auto;display:block}
@@ -55,7 +56,7 @@ button{font:inherit;cursor:pointer}
 
 
 /* ---- 本体 ---- */
-main{flex:1 0 auto;padding-bottom:48px}
+main{display:block;padding-bottom:48px}
 .page{animation:rise .35s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.page{animation:none}.lesson-card,.btn{transition:none}}
@@ -154,7 +155,7 @@ h2{font-size:1.1rem;font-weight:700}
 .course-card .btn::after{content:"";position:absolute;inset:0}
 .empty{color:var(--muted);text-align:center;padding:40px 0}
 
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:22px 0 calc(22px + env(safe-area-inset-bottom,0px));background:var(--bg)}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:22px 0;background:var(--bg)}
 footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 </style>
 
